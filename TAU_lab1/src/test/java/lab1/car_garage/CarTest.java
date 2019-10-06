@@ -9,8 +9,13 @@ import static org.junit.Assert.*;
 public class CarTest {
 
     @Test
-    public void carIsImplementedTest() {
+    public void emptyCarIsImplementedTest() {
         assertNotNull(new Car());
+    }
+
+    @Test
+    public void carIsImplementedTest() {
+        assertNotNull(new Car(1, "GD 1234", "Toyota", 123));
     }
 
 
