@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="lab1.car_garage.CarTest" time="0.01" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="lab1.car_garage.CarTest" time="0.013" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.4+11-post-Ubuntu-1ubuntu218.04.3"/>
@@ -60,5 +60,5 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="lab1.car_garage.CarTest" name="carIsImplementedTest" time="0.01"/>
+  <testcase classname="lab1.car_garage.CarTest" name="carIsImplementedTest" time="0.013"/>
 </testsuite>
