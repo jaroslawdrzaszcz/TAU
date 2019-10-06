@@ -1,1 +1,1 @@
-# TAU
+[![Build Status](https://travis-ci.org/jaroslawdrzaszcz/TAU.svg?branch=master)](https://travis-ci.org/jaroslawdrzaszcz/TAU)
