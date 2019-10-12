@@ -1,4 +1,4 @@
-package lab1.car_garage;
+package Domain;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +17,4 @@ public class CarTest {
     public void carIsImplementedTest() {
         assertNotNull(new Car(1, "GD 1234", "Toyota", 123));
     }
-
-
 }

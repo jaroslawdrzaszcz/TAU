@@ -1,20 +1,19 @@
-package lab1.car_garage;
+package Domain;
 
 public class Car {
-    public int id;
-    public String registration;
-    public String brand;
-    public int owner_id;
+    private int id;
+    private String registration;
+    private String brand;
+    private int owner_id;
 
     public Car(){
-
     }
 
-    public Car(int id, String registration, String brand, int owner_id){
-        id = this.id;
-        registration = this.registration;
-        brand = this.brand;
-        owner_id = this.owner_id;
+    public Car(int id, String registration, String brand, int owner_id) {
+        this.id = id;
+        this.registration = registration;
+        this.brand = brand;
+        this.owner_id = owner_id;
     }
 
     public int getId() {
