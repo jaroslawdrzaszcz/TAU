@@ -17,4 +17,19 @@ public class CarRepository {
         cars.add(car1);
     }
 
+    public Car create(){
+        return new Car();
+    }
+
+    public Car read(){
+        return new Car();
+    }
+
+    public Car update(){
+        return new Car();
+    }
+
+    public Car delete(){
+        return new Car();
+    }
 }

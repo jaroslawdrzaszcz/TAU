@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(JUnit4.class)
 public class CarRepositoryTest {
@@ -24,6 +25,24 @@ public class CarRepositoryTest {
     @Test
     public void carRepositoryIsImplementedTest() {
         assertNotNull(cars);
+    }
+
+    @Test
+    public void createMethodInCarRepositoryIsImplementedTest(){
+        assertNotNull(cars.create());
+    }
+
+    @Test
+    public void readMethodInCarRepositoryIsImplementedTest(){
+        assertNotNull(cars.read());
+    }
+    @Test
+    public void updateMethodInCarRepositoryIsImplementedTest(){
+        assertNotNull(cars.update());
+    }
+    @Test
+    public void deleteMethodInCarRepositoryIsImplementedTest(){
+        assertNotNull(cars.delete());
     }
 
 }
