@@ -21,13 +21,13 @@ public class CarService {
     public ArrayList<Car>readAll(){
         return cars;
     }
-    public Car create(Car newCar){
+    public ArrayList<Car> create(Car newCar){
         for(Car car:cars){
             if(newCar.getId()==car.getId())
                 throw new IllegalArgumentException("There is car with this Id in database");
         }
         cars.add(newCar);
-        return newCar;
+        return cars;
     }
 
     public Car read(int id) {
@@ -38,23 +38,19 @@ public class CarService {
         throw new NoSuchElementException("There is no such a car id in database");
     }
 
-    public Car update(Car updatedCar){
-        for(Car car:cars){
-            if (car.getId()==updatedCar.getId()){
-                car.setRegistration(updatedCar.getRegistration());
-                car.setBrand(updatedCar.getBrand());
-                car.setOwner_id(car.getOwner_id());
-            }
+    public Car update(int id, Car car){
+        if (car.getId()==id){
+            cars.set(id, car);
             return car;
         }
         throw new NoSuchElementException("There is car with this Id in database");
     }
 
     public Car delete(int id){
-        for (Car car:cars){
-            if (car.getId()==id)
-                cars.remove(car);
-            return null;
+        Car car = null;
+        if((car = read(id)) != null){
+            cars.remove(car);
+            return car;
         }
         throw new NoSuchElementException("There is no such a car in database");
     }

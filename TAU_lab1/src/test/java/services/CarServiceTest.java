@@ -35,7 +35,7 @@ public class CarServiceTest {
     }
     @Test
     public void updateMethodInCarRepositoryIsImplementedTest(){
-        assertNotNull(cars.update(new Car()));
+        assertNotNull(cars.update(1, new Car()));
     }
 //    @Test
 //    public void deleteMethodInCarRepositoryIsImplementedTest(){
