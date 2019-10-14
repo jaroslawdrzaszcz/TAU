@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class CarService {
-    private ArrayList<Car> cars;
+    ArrayList<Car> cars;
 
     public CarService(){
 
@@ -14,8 +14,6 @@ public class CarService {
 
     public CarService(ArrayList<Car> cars) {
         this.cars = cars;
-        Car car1 = new Car(0, "GD 123", "Toyota", 123);
-        cars.add(car1);
     }
 
     public ArrayList<Car>readAll(){
@@ -43,7 +41,7 @@ public class CarService {
             cars.set(id, car);
             return car;
         }
-        throw new NoSuchElementException("There is car with this Id in database");
+        throw new NoSuchElementException("There is no car with this Id in database");
     }
 
     public Car delete(int id){

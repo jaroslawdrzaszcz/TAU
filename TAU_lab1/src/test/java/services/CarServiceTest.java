@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(JUnit4.class)
 public class CarServiceTest {
 
-    CarService cars = new CarService(new ArrayList<Car>());
+    private CarService testRepo = new CarService(new ArrayList<Car>());
 
     @Test
     public void emptyCarRepositoryIsImplementedTest() {
@@ -21,25 +21,34 @@ public class CarServiceTest {
 
     @Test
     public void carRepositoryIsImplementedTest() {
-        assertNotNull(cars);
+        assertNotNull(testRepo);
     }
 
     @Test
     public void createMethodInCarRepositoryIsImplementedTest(){
-        assertNotNull(cars.create(new Car(1, "Test", "Test", 1)));
+        assertNotNull(testRepo.create(new Car(1, "Test", "Test", 1)));
     }
 
     @Test
     public void readMethodInCarRepositoryIsImplementedTest(){
-        assertNotNull(cars.read(0));
+        Car car1 = new Car(0, "GD 123", "Toyota", 123);
+        testRepo.cars.add(car1);
+
+        assertNotNull(testRepo.read(0));
     }
     @Test
     public void updateMethodInCarRepositoryIsImplementedTest(){
-        assertNotNull(cars.update(1, new Car()));
+        Car car1 = new Car(0, "GD 123", "Toyota", 123);
+        testRepo.cars.add(car1);
+
+        assertNotNull(testRepo.update(0, new Car()));
     }
-//    @Test
-//    public void deleteMethodInCarRepositoryIsImplementedTest(){
-//        assertNotNull(cars.delete(0));
-//    }
+    @Test
+    public void deleteMethodInCarRepositoryIsImplementedTest(){
+        Car car1 = new Car(0, "GD 123", "Toyota", 123);
+        testRepo.cars.add(car1);
+
+        assertNotNull(testRepo.delete(0));
+    }
 
 }
