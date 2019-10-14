@@ -44,9 +44,8 @@ public class CarService {
         throw new NoSuchElementException("There is no car with this Id in database");
     }
 
-    public Car delete(int id){
-        Car car = null;
-        if((car = read(id)) != null){
+    public Car delete(Car car){
+        if(cars.contains(car)){
             cars.remove(car);
             return car;
         }

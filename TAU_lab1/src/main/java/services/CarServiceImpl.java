@@ -17,7 +17,7 @@ public class CarServiceImpl {
             carsRepo.create(car);
         }
 
-        carsRepo.delete(5);
+        carsRepo.delete(cars.get(5));
         carsRepo.update(8, new Car(8, "Test", "Test", 156));
 
         for (Car car:carsRepo.readAll()){

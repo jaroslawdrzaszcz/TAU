@@ -52,7 +52,7 @@ public class CarServiceTest {
         Car car1 = new Car(0, "GD 123", "Toyota", 123);
         testRepo.cars.add(car1);
 
-        assertNotNull(testRepo.delete(0));
+        assertNotNull(testRepo.delete(testRepo.cars.get(0)));
     }
 
     @Test
@@ -113,8 +113,8 @@ public class CarServiceTest {
             Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
             testRepo.cars.add(car);
         }
-        testRepo.delete(1);
-        testRepo.delete(5);
+        testRepo.delete(testRepo.cars.get(1));
+        testRepo.delete(testRepo.cars.get(5));
 
         assertEquals(cars_number - 2, testRepo.cars.size());
     }
@@ -177,7 +177,9 @@ public class CarServiceTest {
         except.expect(NoSuchElementException.class);
         except.expectMessage("There is no such a car in database");
 
-        assertNotNull(testRepo.delete(100));
+        Car newCar = new Car(100, "Test", "Test", 100);
+
+        assertNotNull(testRepo.delete(newCar));
     }
 
 }
