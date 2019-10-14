@@ -1,11 +1,15 @@
 package services;
 
 import domain.Car;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
+import java.util.concurrent.ExecutionException;
 
 import static org.junit.Assert.*;
 
@@ -113,6 +117,67 @@ public class CarServiceTest {
         testRepo.delete(5);
 
         assertEquals(cars_number - 2, testRepo.cars.size());
+    }
+
+    @Rule
+    public final ExpectedException except = ExpectedException.none();
+
+    @Test
+    public void createMethodExceptionTest(){
+        int cars_number = 11;
+        for(int i = 0; i < cars_number; i++ ){
+            Integer iString = new Integer(i);
+            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
+            testRepo.cars.add(car);
+        }
+        except.expect(IllegalArgumentException.class);
+        except.expectMessage("There is car with this Id in database");
+
+        assertNotNull(testRepo.create(new Car(2, "Test", "Test", 100)));
+    }
+
+    @Test
+    public void readMethodExceptionTest(){
+        int cars_number = 11;
+        for(int i = 0; i < cars_number; i++ ){
+            Integer iString = new Integer(i);
+            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
+            testRepo.cars.add(car);
+        }
+        except.expect(NoSuchElementException.class);
+        except.expectMessage("There is no such a car id in database");
+
+        assertNotNull(testRepo.read(100));
+    }
+
+    @Test
+    public void updateMethodExceptionTest(){
+        int cars_number = 11;
+        for(int i = 0; i < cars_number; i++ ){
+            Integer iString = new Integer(i);
+            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
+            testRepo.cars.add(car);
+        }
+        Car newCar = new Car(10, "Test", "Test", 100);
+
+        except.expect(NoSuchElementException.class);
+        except.expectMessage("There is no car with this Id in database");
+
+        assertNotNull(testRepo.update(100, newCar));
+    }
+
+    @Test
+    public void deleteMethodExceptionTest(){
+        int cars_number = 11;
+        for(int i = 0; i < cars_number; i++ ){
+            Integer iString = new Integer(i);
+            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
+            testRepo.cars.add(car);
+        }
+        except.expect(NoSuchElementException.class);
+        except.expectMessage("There is no such a car in database");
+
+        assertNotNull(testRepo.delete(100));
     }
 
 }
