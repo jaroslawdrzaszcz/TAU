@@ -1,6 +1,7 @@
 package services;
 
 import domain.Car;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -17,6 +18,15 @@ import static org.junit.Assert.*;
 public class CarServiceTest {
 
     private CarService testRepo = new CarService(new ArrayList<Car>());
+    private int cars_number = 11;
+
+    @Before
+    public void setTestRepo(){
+        for(int i = 0; i < cars_number; i++ ) {
+            Car car = new Car(i, "GD 123" + Integer.toString(i), "Mada v" + Integer.toString(i), 100 + i);
+            testRepo.cars.add(car);
+        }
+    }
 
     @Test
     public void emptyCarRepositoryIsImplementedTest() {
@@ -30,7 +40,7 @@ public class CarServiceTest {
 
     @Test
     public void createMethodInCarRepositoryIsImplementedTest(){
-        assertNotNull(testRepo.create(new Car(1, "Test", "Test", 1)));
+        assertNotNull(testRepo.create(new Car(11, "Test", "Test", 1)));
     }
 
     @Test
@@ -57,22 +67,11 @@ public class CarServiceTest {
 
     @Test
     public void readAllMethodTest(){
-        int cars_number = 11;
-        for(int i = 0; i < cars_number; i++ ){
-            Integer iString = new Integer(i);
-            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
-            testRepo.cars.add(car);
-        }
         assertEquals(cars_number, testRepo.cars.size());
     }
 
     @Test
     public void createMethodTest(){
-        int cars_number = 11;
-        for(int i = 0; i < cars_number; i++ ){
-            Integer iString = new Integer(i);
-            testRepo.create(new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i));
-        }
         Car carToVerify = testRepo.read(5);
         assertEquals(cars_number, testRepo.cars.size());
         assertEquals(testRepo.cars.get(5), carToVerify);
@@ -80,24 +79,12 @@ public class CarServiceTest {
 
     @Test
     public void readMethodTest(){
-        int cars_number = 11;
-        for(int i = 0; i < cars_number; i++ ){
-            Integer iString = new Integer(i);
-            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
-            testRepo.cars.add(car);
-        }
         Car carToVerify = testRepo.read(5);
         assertEquals(testRepo.cars.get(5), carToVerify);
     }
 
     @Test
     public void updateMethodTest(){
-        int cars_number = 11;
-        for(int i = 0; i < cars_number; i++ ){
-            Integer iString = new Integer(i);
-            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
-            testRepo.cars.add(car);
-        }
         Car newCar = new Car(10, "Test", "Test", 100);
         testRepo.update(10, newCar);
 
@@ -107,12 +94,6 @@ public class CarServiceTest {
 
     @Test
     public void deleteMethodTest(){
-        int cars_number = 11;
-        for(int i = 0; i < cars_number; i++ ){
-            Integer iString = new Integer(i);
-            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
-            testRepo.cars.add(car);
-        }
         testRepo.delete(testRepo.cars.get(1));
         testRepo.delete(testRepo.cars.get(5));
 
@@ -124,12 +105,6 @@ public class CarServiceTest {
 
     @Test
     public void createMethodExceptionTest(){
-        int cars_number = 11;
-        for(int i = 0; i < cars_number; i++ ){
-            Integer iString = new Integer(i);
-            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
-            testRepo.cars.add(car);
-        }
         except.expect(IllegalArgumentException.class);
         except.expectMessage("There is car with this Id in database");
 
@@ -138,12 +113,6 @@ public class CarServiceTest {
 
     @Test
     public void readMethodExceptionTest(){
-        int cars_number = 11;
-        for(int i = 0; i < cars_number; i++ ){
-            Integer iString = new Integer(i);
-            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
-            testRepo.cars.add(car);
-        }
         except.expect(NoSuchElementException.class);
         except.expectMessage("There is no such a car id in database");
 
@@ -152,12 +121,6 @@ public class CarServiceTest {
 
     @Test
     public void updateMethodExceptionTest(){
-        int cars_number = 11;
-        for(int i = 0; i < cars_number; i++ ){
-            Integer iString = new Integer(i);
-            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
-            testRepo.cars.add(car);
-        }
         Car newCar = new Car(10, "Test", "Test", 100);
 
         except.expect(NoSuchElementException.class);
@@ -168,12 +131,6 @@ public class CarServiceTest {
 
     @Test
     public void deleteMethodExceptionTest(){
-        int cars_number = 11;
-        for(int i = 0; i < cars_number; i++ ){
-            Integer iString = new Integer(i);
-            Car car = new Car(i, "GD 123" + iString.toString(), "Mada v" + iString.toString(), 100+i);
-            testRepo.cars.add(car);
-        }
         except.expect(NoSuchElementException.class);
         except.expectMessage("There is no such a car in database");
 
