@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -16,13 +17,13 @@ import static org.junit.Assert.assertNotNull;
 public class CarServiceTimestampsTest {
 
     @Mock
-    Car addTimestamp;
+    Date addTimestamp;
 
     @Mock
-    Car updateTimestamp;
+    Date updateTimestamp;
 
     @Mock
-    Car readTimestamps;
+    Date readTimestamps;
 
     @Before
     public void initMocks(){
@@ -43,4 +44,11 @@ public class CarServiceTimestampsTest {
     public void testReadTimestampsNotNull(){
         assertNotNull(readTimestamps);
     }
+
+    @Test
+    public void testAddTimestampTest(){
+
+    }
+
+
 }

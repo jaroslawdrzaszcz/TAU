@@ -1,6 +1,5 @@
 package domain;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Car {
@@ -8,9 +7,9 @@ public class Car {
     private String registration;
     private String brand;
     private int owner_id;
-    private LocalDate addTimestamp;
-    private LocalDate updateTimestamp;
-    private LocalDate readTimestamps;
+    private Date addTimestamp;
+    private Date updateTimestamp;
+    private Date readTimestamps;
 
     public Car(){
     }
@@ -22,7 +21,7 @@ public class Car {
         this.owner_id = owner_id;
     }
 
-    public Car(int id, String registration, String brand, int owner_id, LocalDate addTimestamp, LocalDate updateTimestamp, LocalDate readTimestamps) {
+    public Car(int id, String registration, String brand, int owner_id, Date addTimestamp, Date updateTimestamp, Date readTimestamps) {
         this.id = id;
         this.registration = registration;
         this.brand = brand;
@@ -64,27 +63,27 @@ public class Car {
         this.owner_id = owner_id;
     }
 
-    public LocalDate getAddTimestamp() {
+    public Date getAddTimestamp() {
         return addTimestamp;
     }
 
-    public void setAddTimestamp(LocalDate addTimestamp) {
+    public void setAddTimestamp(Date addTimestamp) {
         this.addTimestamp = addTimestamp;
     }
 
-    public LocalDate getUpdateTimestamp() {
+    public Date getUpdateTimestamp() {
         return updateTimestamp;
     }
 
-    public void setUpdateTimestamp(LocalDate updateTimestamp) {
+    public void setUpdateTimestamp(Date updateTimestamp) {
         this.updateTimestamp = updateTimestamp;
     }
 
-    public LocalDate getReadTimestamps() {
+    public Date getReadTimestamps() {
         return readTimestamps;
     }
 
-    public void setReadTimestamps(LocalDate readTimestamps) {
+    public void setReadTimestamps(Date readTimestamps) {
         this.readTimestamps = readTimestamps;
     }
 }

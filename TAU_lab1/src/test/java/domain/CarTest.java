@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import static org.junit.Assert.*;
@@ -23,6 +24,6 @@ public class CarTest {
 
     @Test
     public void carTimestampsIsImplementedTest() {
-        assertNotNull(new Car(1, "GD 1234", "Toyota", 123, LocalDate.now(),LocalDate.now(), LocalDate.now()));
+        assertNotNull(new Car(1, "GD 1234", "Toyota", 123, Date.valueOf(LocalDate.now()),LocalDate.now(), LocalDate.now()));
     }
 }
