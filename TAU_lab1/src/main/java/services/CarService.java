@@ -2,6 +2,7 @@ package services;
 
 import domain.Car;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -24,6 +25,7 @@ public class CarService {
             if(newCar.getId()==car.getId())
                 throw new IllegalArgumentException("There is car with this Id in database");
         }
+        newCar.setAddTimestamp(LocalDate.now());
         cars.add(newCar);
         return cars;
     }
