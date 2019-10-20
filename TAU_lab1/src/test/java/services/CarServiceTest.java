@@ -10,9 +10,9 @@ import org.junit.runners.JUnit4;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
-import java.util.concurrent.ExecutionException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(JUnit4.class)
 public class CarServiceTest {

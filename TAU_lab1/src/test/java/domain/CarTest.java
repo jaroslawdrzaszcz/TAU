@@ -17,4 +17,9 @@ public class CarTest {
     public void carIsImplementedTest() {
         assertNotNull(new Car(1, "GD 1234", "Toyota", 123));
     }
+
+//    @Test
+//    public void carTimestampsIsImplementedTest() {
+//        assertNotNull(new Car(1, "GD 1234", "Toyota", 123, 2019-10-20, "2019-10-20", "2019-10-20");
+//    }
 }
