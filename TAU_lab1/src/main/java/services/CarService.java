@@ -1,6 +1,7 @@
 package services;
 
 import domain.Car;
+import domain.TimeStamp;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -26,7 +27,9 @@ public class CarService {
             if(newCar.getId()==car.getId())
                 throw new IllegalArgumentException("There is car with this Id in database");
         }
-        newCar.setAddTimestamp(Date.valueOf(LocalDate.now()));
+        TimeStamp timeStamp = new TimeStamp();
+        timeStamp.setTimeStamp(LocalDate.now());
+        newCar.setAddTimestamp(timeStamp);
         cars.add(newCar);
         return cars;
     }

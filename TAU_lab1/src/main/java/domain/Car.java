@@ -7,9 +7,9 @@ public class Car {
     private String registration;
     private String brand;
     private int owner_id;
-    private Date addTimestamp;
-    private Date updateTimestamp;
-    private Date readTimestamps;
+    private TimeStamp addTimestamp;
+    private TimeStamp updateTimestamp;
+    private TimeStamp readTimestamps;
 
     public Car(){
     }
@@ -21,7 +21,7 @@ public class Car {
         this.owner_id = owner_id;
     }
 
-    public Car(int id, String registration, String brand, int owner_id, Date addTimestamp, Date updateTimestamp, Date readTimestamps) {
+    public Car(int id, String registration, String brand, int owner_id, TimeStamp addTimestamp, TimeStamp updateTimestamp, TimeStamp readTimestamps) {
         this.id = id;
         this.registration = registration;
         this.brand = brand;
@@ -63,27 +63,27 @@ public class Car {
         this.owner_id = owner_id;
     }
 
-    public Date getAddTimestamp() {
+    public TimeStamp getAddTimestamp() {
         return addTimestamp;
     }
 
-    public void setAddTimestamp(Date addTimestamp) {
+    public void setAddTimestamp(TimeStamp addTimestamp) {
         this.addTimestamp = addTimestamp;
     }
 
-    public Date getUpdateTimestamp() {
+    public TimeStamp getUpdateTimestamp() {
         return updateTimestamp;
     }
 
-    public void setUpdateTimestamp(Date updateTimestamp) {
+    public void setUpdateTimestamp(TimeStamp updateTimestamp) {
         this.updateTimestamp = updateTimestamp;
     }
 
-    public Date getReadTimestamps() {
+    public TimeStamp getReadTimestamps() {
         return readTimestamps;
     }
 
-    public void setReadTimestamps(Date readTimestamps) {
+    public void setReadTimestamps(TimeStamp readTimestamps) {
         this.readTimestamps = readTimestamps;
     }
 }

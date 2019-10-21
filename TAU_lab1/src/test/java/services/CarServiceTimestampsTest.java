@@ -1,6 +1,7 @@
 package services;
 
 import domain.Car;
+import domain.TimeStamp;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,21 +10,25 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.when;
 
 @RunWith(JUnit4.class)
 public class CarServiceTimestampsTest {
 
-    @Mock
-    Date addTimestamp;
+    private CarService testRepo = new CarService(new ArrayList<Car>());
 
     @Mock
-    Date updateTimestamp;
+    TimeStamp addTimestamp;
 
     @Mock
-    Date readTimestamps;
+    TimeStamp updateTimestamp;
+
+    @Mock
+    TimeStamp readTimestamps;
 
     @Before
     public void initMocks(){
@@ -46,9 +51,11 @@ public class CarServiceTimestampsTest {
     }
 
     @Test
-    public void testAddTimestampTest(){
-
+    public void testReadTimestampOnCreateMethod(){
+        addTimestamp.setTimeStamp(LocalDate.now());
+        Car car = new Car();
+        testRepo.create(car);
+        when(addTimestamp.getTimeStamp()).thenReturn(LocalDate.now());
+        assertEquals(testRepo.cars.get(0).getAddTimestamp().getTimeStamp(), LocalDate.now());
     }
-
-
 }

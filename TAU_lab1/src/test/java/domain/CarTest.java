@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 @RunWith(JUnit4.class)
 public class CarTest {
 
+    TimeStamp date = new TimeStamp((LocalDate.now()));
     @Test
     public void emptyCarIsImplementedTest() {
         assertNotNull(new Car());
@@ -24,6 +25,6 @@ public class CarTest {
 
     @Test
     public void carTimestampsIsImplementedTest() {
-        assertNotNull(new Car(1, "GD 1234", "Toyota", 123, Date.valueOf(LocalDate.now()),LocalDate.now(), LocalDate.now()));
+        assertNotNull(new Car(1, "GD 1234", "Toyota", 123, date, date, date));
     }
 }
