@@ -35,6 +35,7 @@ public class CarServiceTimestampsTest {
         MockitoAnnotations.initMocks(this);
     }
 
+    // tests for not null assertion
     @Test
     public void testAddTimestampNotNull(){
         assertNotNull(addTimestamp);
@@ -50,12 +51,23 @@ public class CarServiceTimestampsTest {
         assertNotNull(readTimestamps);
     }
 
+    // simple test for addTimestamp equal to date now()
     @Test
-    public void testReadTimestampOnCreateMethod(){
-        addTimestamp.setTimeStamp(LocalDate.now());
+    public void testAddTimestampOnCreateMethod(){
         Car car = new Car();
         testRepo.create(car);
         when(addTimestamp.getTimeStamp()).thenReturn(LocalDate.now());
         assertEquals(testRepo.cars.get(0).getAddTimestamp().getTimeStamp(), LocalDate.now());
     }
+
+    // simple test for readTimestamps equal to date now()
+    @Test
+    public void testReadTimestampOnCreateMethod(){
+        Car car = new Car(0, "GD 123", "Toyota", 123);
+        testRepo.cars.add(car);
+        testRepo.read(0);
+        when(readTimestamps.getTimeStamp()).thenReturn(LocalDate.now());
+        assertEquals(testRepo.cars.get(0).getReadTimestamps().getTimeStamp(), LocalDate.now());
+    }
+
 }

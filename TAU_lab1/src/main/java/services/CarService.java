@@ -35,8 +35,11 @@ public class CarService {
     }
 
     public Car read(int id) {
+        TimeStamp timeStamp = new TimeStamp();
         for(Car car:cars){
             if (car.getId()==id)
+                timeStamp.setTimeStamp(LocalDate.now());
+                car.setReadTimestamps(timeStamp);
                 return car;
             }
         throw new NoSuchElementException("There is no such a car id in database");
