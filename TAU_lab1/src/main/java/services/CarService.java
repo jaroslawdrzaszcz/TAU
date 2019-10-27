@@ -46,8 +46,11 @@ public class CarService {
     }
 
     public Car update(int id, Car car){
+        TimeStamp timeStamp = new TimeStamp();
         if (car.getId()==id){
             cars.set(id, car);
+            timeStamp.setTimeStamp(LocalDate.now());
+            car.setUpdateTimestamp(timeStamp);
             return car;
         }
         throw new NoSuchElementException("There is no car with this Id in database");

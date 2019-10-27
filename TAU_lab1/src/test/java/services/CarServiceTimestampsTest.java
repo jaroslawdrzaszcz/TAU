@@ -70,4 +70,15 @@ public class CarServiceTimestampsTest {
         assertEquals(testRepo.cars.get(0).getReadTimestamps().getTimeStamp(), LocalDate.now());
     }
 
+    // simple test for updateTimestamp equal to date now()
+    @Test
+    public void testUpdateTimestampOnCreateMethod(){
+        Car car = new Car(0, "GD 123", "Toyota", 123);
+        Car newCar = new Car(0, "GD 456", "Mazda", 123);
+        testRepo.cars.add(car);
+        testRepo.update(0, newCar);
+        when(updateTimestamp.getTimeStamp()).thenReturn(LocalDate.now());
+        assertEquals(testRepo.cars.get(0).getUpdateTimestamp().getTimeStamp(), LocalDate.now());
+    }
+
 }
