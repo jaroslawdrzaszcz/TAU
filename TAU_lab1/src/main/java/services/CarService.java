@@ -20,6 +20,11 @@ public class CarService {
     }
 
     public ArrayList<Car>readAll(){
+        TimeStamp timeStamp = new TimeStamp();
+        timeStamp.setTimeStamp(LocalDate.now());
+        for (Car car:cars){
+            car.setReadTimestamps(timeStamp);
+        }
         return cars;
     }
     public ArrayList<Car> create(Car newCar){

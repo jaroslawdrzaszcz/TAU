@@ -62,7 +62,7 @@ public class CarServiceTimestampsTest {
 
     // simple test for readTimestamps equal to date now()
     @Test
-    public void testReadTimestampOnCreateMethod(){
+    public void testReadTimestampOnReadMethod(){
         Car car = new Car(0, "GD 123", "Toyota", 123);
         testRepo.cars.add(car);
         testRepo.read(0);
@@ -72,7 +72,7 @@ public class CarServiceTimestampsTest {
 
     // simple test for updateTimestamp equal to date now()
     @Test
-    public void testUpdateTimestampOnCreateMethod(){
+    public void testUpdateTimestampOnUpdateMethod(){
         Car car = new Car(0, "GD 123", "Toyota", 123);
         Car newCar = new Car(0, "GD 456", "Mazda", 123);
         testRepo.cars.add(car);
@@ -81,4 +81,16 @@ public class CarServiceTimestampsTest {
         assertEquals(testRepo.cars.get(0).getUpdateTimestamp().getTimeStamp(), LocalDate.now());
     }
 
+    // simple test for readTimestamps equal to date now()
+    @Test
+    public void testReadTimestampOnReadAllMethod() {
+        Car car = new Car(0, "GD 123", "Toyota", 123);
+        Car car2 = new Car(1, "GD 456", "Mazda", 456);
+        testRepo.cars.add(car);
+        testRepo.cars.add(car2);
+        testRepo.readAll();
+        when(readTimestamps.getTimeStamp()).thenReturn(LocalDate.now());
+        assertEquals(testRepo.cars.get(0).getReadTimestamps().getTimeStamp(), LocalDate.now());
+        assertEquals(testRepo.cars.get(1).getReadTimestamps().getTimeStamp(), LocalDate.now());
+    }
 }
