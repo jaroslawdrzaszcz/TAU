@@ -138,5 +138,4 @@ public class CarServiceTest {
 
         assertNotNull(testRepo.delete(newCar));
     }
-
 }

@@ -3,7 +3,6 @@ package services;
 import domain.Car;
 import domain.TimeStamp;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -68,5 +67,17 @@ public class CarService {
             return car;
         }
         throw new NoSuchElementException("There is no such a car in database");
+    }
+
+    public ArrayList<TimeStamp> getTimestamps(int id) {
+        ArrayList<TimeStamp> timeStampsList = new ArrayList<>();
+        for (Car car:cars) {
+            if (car.getId() == id) {
+                timeStampsList.add(car.getAddTimestamp());
+                timeStampsList.add(car.getReadTimestamps());
+                timeStampsList.add(car.getUpdateTimestamp());
+            }
+        }
+        return timeStampsList;
     }
 }
