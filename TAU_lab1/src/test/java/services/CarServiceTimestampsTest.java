@@ -3,18 +3,22 @@ package services;
 import domain.Car;
 import domain.TimeStamp;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoRule;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.internal.matchers.Null;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 @RunWith(JUnit4.class)
@@ -31,6 +35,9 @@ public class CarServiceTimestampsTest {
 
     @Mock
     CarService mockRepo = new CarService(new ArrayList<>());
+
+    @Rule
+    public MockitoRule mockitoRule = MockitoJUnit.rule();
 
     @Before
     public void initMocks(){
@@ -154,18 +161,34 @@ public class CarServiceTimestampsTest {
         assertEquals(testRepo.getTimestamps(0).get(2).getTimeStamp(), updateTimestamp.getTimeStamp());
     }
 
+    @Rule
+    public final ExpectedException except = ExpectedException.none();
+
     // test for timestamps toggle methods
     @Test
     public void testForToggleAddTimestampMethod(){
+        Car car = new Car(0, "GD 123", "Toyota", 123);
         testRepo.toggleAddTimestamp();
+        testRepo.create(car);
+        assertNull(testRepo.cars.get(0).getAddTimestamp());
     }
 
     @Test
     public void testForToggleReadTimestampMethod(){
+        Car car = new Car(0, "GD 123", "Toyota", 123);
+        testRepo.cars.add(car);
         testRepo.toggleReadTimestamp();
+        testRepo.read(0);
+        testRepo.readAll();
+        assertNull(testRepo.cars.get(0).getReadTimestamps());
     }
     @Test
     public void testForToggleUpdateTimestampMethod(){
+        Car car = new Car(0, "GD 123", "Toyota", 123);
+        Car newCar = new Car(0, "GD 456", "Mazda", 123);
+        testRepo.cars.add(car);
         testRepo.toggleUpdateTimestamp();
+        testRepo.update(0, newCar);
+        assertNull(testRepo.cars.get(0).getUpdateTimestamp());
     }
 }

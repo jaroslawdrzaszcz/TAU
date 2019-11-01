@@ -1,5 +1,7 @@
 package domain;
 
+import services.CarService;
+
 import java.util.Date;
 
 public class Car {
