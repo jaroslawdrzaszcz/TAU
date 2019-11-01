@@ -153,4 +153,19 @@ public class CarServiceTimestampsTest {
         testRepo.update(0, newCar);
         assertEquals(testRepo.getTimestamps(0).get(2).getTimeStamp(), updateTimestamp.getTimeStamp());
     }
+
+    // test for timestamps toggle methods
+    @Test
+    public void testForToggleAddTimestampMethod(){
+        testRepo.toggleAddTimestamp();
+    }
+
+    @Test
+    public void testForToggleReadTimestampMethod(){
+        testRepo.toggleReadTimestamp();
+    }
+    @Test
+    public void testForToggleUpdateTimestampMethod(){
+        testRepo.toggleUpdateTimestamp();
+    }
 }
