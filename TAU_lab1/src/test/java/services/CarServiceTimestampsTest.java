@@ -15,13 +15,10 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(JUnit4.class)
 public class CarServiceTimestampsTest {
-
-    private CarService testRepo = new CarService(new ArrayList<Car>());
 
     @Mock
     TimeStamp addTimestamp;
@@ -32,10 +29,14 @@ public class CarServiceTimestampsTest {
     @Mock
     TimeStamp readTimestamps;
 
+    @Mock
+    CarService mockRepo = new CarService(new ArrayList<>());
+
     @Before
     public void initMocks(){
         MockitoAnnotations.initMocks(this);
     }
+    private CarService testRepo = new CarService(new ArrayList<>());
 
     // tests for not null assertion
     @Test
@@ -53,7 +54,41 @@ public class CarServiceTimestampsTest {
         assertNotNull(readTimestamps);
     }
 
-    // simple test for addTimestamp equal to date now()
+    @Test
+    public void testCreateMethodOnMockedRepo(){
+        Car car = new Car();
+        mockRepo.create(car);
+        verify(mockRepo).create(car);
+    }
+
+    @Test
+    public void testReadMethodOnMockedRepo(){
+        Car car = new Car(0, "GD 123", "Toyota", 123);
+        mockRepo.create(car);
+        mockRepo.read(0);
+        verify(mockRepo, times(1)).read(0);
+    }
+
+    @Test
+    public void testReadAllMethodOnMockedRepo(){
+        Car car = new Car(0, "GD 123", "Toyota", 123);
+        Car car1 = new Car(1, "GD 456", "Mazda", 456);
+        mockRepo.create(car);
+        mockRepo.create(car1);
+        mockRepo.readAll();
+        verify(mockRepo, times(1)).readAll();
+    }
+
+    @Test
+    public void testUpdateMethodOnMockedRepo(){
+        Car car = new Car(0, "GD 123", "Toyota", 123);
+        Car newCar = new Car(1, "GD 456", "Mazda", 456);
+        mockRepo.create(car);
+        mockRepo.update(0, newCar);
+        verify(mockRepo, times(1)).update(0, newCar);
+    }
+
+    // simple tests for addTimestamp equal to date now()
     @Test
     public void testAddTimestampOnCreateMethod(){
         Car car = new Car();
