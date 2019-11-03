@@ -1,9 +1,5 @@
 package domain;
 
-import services.CarService;
-
-import java.util.Date;
-
 public class Car {
     private int id;
     private String registration;

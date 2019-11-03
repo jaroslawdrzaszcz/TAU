@@ -2,7 +2,6 @@ package services;
 
 import domain.Car;
 import domain.TimeStamp;
-import sun.font.DelegatingShape;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class CarService {
 
     }
 
-    CarService(ArrayList<Car> cars) {
+    public CarService(ArrayList<Car> cars) {
         this.cars = cars;
     }
 
@@ -32,7 +31,7 @@ public class CarService {
         }
         return cars;
     }
-    ArrayList<Car> create(Car newCar){
+    public ArrayList<Car> create(Car newCar){
         for(Car car:cars){
             if(newCar.getId()==car.getId())
                 throw new IllegalArgumentException("There is car with this Id in database");
@@ -46,7 +45,7 @@ public class CarService {
         return cars;
     }
 
-    Car read(int id) {
+    public Car read(int id) {
         TimeStamp timeStamp = new TimeStamp();
         for(Car car:cars){
             if (car.getId()==id) {
@@ -60,7 +59,7 @@ public class CarService {
         throw new NoSuchElementException("There is no such a car id in database");
     }
 
-    Car update(int id, Car car){
+    public Car update(int id, Car car){
         TimeStamp timeStamp = new TimeStamp();
         if (car.getId()==id){
             cars.set(id, car);
@@ -73,7 +72,7 @@ public class CarService {
         throw new NoSuchElementException("There is no car with this Id in database");
     }
 
-    Car delete(Car car){
+    public Car delete(Car car){
         if(cars.contains(car)){
             cars.remove(car);
             return car;

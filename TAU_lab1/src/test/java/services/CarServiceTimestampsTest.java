@@ -11,9 +11,8 @@ import org.junit.runners.JUnit4;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoRule;
 import org.mockito.junit.MockitoJUnit;
-import org.mockito.internal.matchers.Null;
+import org.mockito.junit.MockitoRule;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
