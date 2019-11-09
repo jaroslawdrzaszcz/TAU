@@ -16,18 +16,21 @@ public class NewCar {
     private CarService repo = new CarService(new ArrayList<>());
 
     @Given("Create New Car")
-    public void create_car() {
+    public void create_new_car() {
         car = new Car(1, "GD 123", "Mazda", 123);
     }
 
-    @When("When Car has been created")
-    public void car_created() {
+    @When("Car has been created")
+    public void car_has_been_created() {
+        repo.toggleAddTimestamp();
         repo.create(car);
-
     }
 
-    @Then("Then Car has been add to database")
-    public void car_added() {
+    @Then("Car has been add to database")
+    public void car_has_been_add_to_database()
+    {
+        repo.toggleReadTimestamp();
         assertEquals(car, repo.read(1));
     }
 }
+

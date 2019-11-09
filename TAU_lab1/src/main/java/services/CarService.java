@@ -92,11 +92,11 @@ public class CarService {
         return timeStampsList;
     }
 
-     void toggleAddTimestamp() {
+    public void toggleAddTimestamp() {
         addToggle = false;
     }
 
-    void toggleReadTimestamp() {
+    public void toggleReadTimestamp() {
         readToggle = false;
     }
 
