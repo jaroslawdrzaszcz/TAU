@@ -103,4 +103,12 @@ public class CarService {
     void toggleUpdateTimestamp() {
         updateToggle = false;
     }
+
+    public ArrayList<Car> searchCarByRegistrationExpression(String expression) {
+        ArrayList<Car> searchedCars = new ArrayList<>();
+        for(Car car:cars){
+            if(car.getRegistration().regionMatches(true, 0, expression, 0, expression.length()))
+            searchedCars.add(car);
+        }
+        return searchedCars;    }
 }
