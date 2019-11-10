@@ -16,11 +16,13 @@ public class UpdateCarData {
     private CarService testRepo = new CarService(new ArrayList<>());
     private ArrayList<Car> carsList = new ArrayList<>();
     private ArrayList<Car> searchedCars;
-    private Car newCar = new Car(5, "NO 4567", "Toyota", 200);
+    private int id_to_update = 0;
+    private Car newCar = new Car(id_to_update, "NO 4567", "Toyota", 200);
+    private String actualResponse = "";
 
     @Given("prepare cars list")
     public void prepare_cars_list() {
-        for (int i = 0; i < cars_number; i++) {
+        for (int i = 1; i <= cars_number; i++) {
             Car car = new Car(i, "GD 123" + Integer.toString(i), "Golf v" + Integer.toString(i), 100 + i);
             i++;
             Car car1 = new Car(i, "NO 123" + Integer.toString(i), "Mazda " + Integer.toString(i), 100 + i);
@@ -41,21 +43,25 @@ public class UpdateCarData {
         searchedCars = testRepo.searchCarByRegistrationExpression("NP");
     }
 
-    @And("cars id is 5")
-    public void cars_id_is_5() {
+    @And("cars id is {int}")
+    public void cars_id_is(int id) {
         for(Car car:searchedCars){
-            if(car.getId()==5){
-                Car car_to_update = car;
+            if(car.getId()==id){
+                 actualResponse = "Updated";
+                 id_to_update = id;
+                 break;
             }
+            actualResponse = "NotUpdates";
         }
     }
 
-    @Then("update data of this Car by new Car")
-    public void update_data_of_this_Car_by_new_Car()
+    @Then("update data of this Car by new Car {string}")
+    public void update_data_of_this_Car_by_new_Car(String expectedResponse)
     {
+        assertEquals(expectedResponse, actualResponse);
         testRepo.toggleUpdateTimestamp();
-        testRepo.update(5, newCar);
-        assertEquals(newCar, testRepo.read(5));
+        testRepo.update(id_to_update, newCar);
+        assertEquals(newCar, testRepo.read(id_to_update));
     }
 
 }
