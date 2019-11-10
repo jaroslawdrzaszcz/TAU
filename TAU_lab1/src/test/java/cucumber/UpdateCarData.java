@@ -17,7 +17,6 @@ public class UpdateCarData {
     private ArrayList<Car> carsList = new ArrayList<>();
     private ArrayList<Car> searchedCars;
     private int id_to_update = 0;
-    private Car newCar = new Car(id_to_update, "NO 4567", "Toyota", 200);
     private String actualResponse = "";
 
     @Given("prepare cars list")
@@ -40,11 +39,12 @@ public class UpdateCarData {
 
     @When("car is registered in Olsztyn")
     public void car_is_registered_in_Olsztyn() {
-        searchedCars = testRepo.searchCarByRegistrationExpression("NP");
+        searchedCars = testRepo.searchCarByRegistrationExpression("NO");
     }
 
-    @And("cars id is {int}")
-    public void cars_id_is(int id) {
+    @And("cars id is {string}")
+    public void cars_id_is(String index) {
+        int id = Integer.parseInt(index);
         for(Car car:searchedCars){
             if(car.getId()==id){
                  actualResponse = "Updated";
@@ -59,9 +59,12 @@ public class UpdateCarData {
     public void update_data_of_this_Car_by_new_Car(String expectedResponse)
     {
         assertEquals(expectedResponse, actualResponse);
-        testRepo.toggleUpdateTimestamp();
-        testRepo.update(id_to_update, newCar);
-        assertEquals(newCar, testRepo.read(id_to_update));
+        Car newCar = new Car(id_to_update, "NO 4567", "Toyota", 200);
+        if(actualResponse.equals("Updated")){
+            testRepo.toggleUpdateTimestamp();
+            testRepo.update(id_to_update, newCar);
+            assertEquals(newCar, testRepo.cars.get(id_to_update));
+        }
     }
 
 }

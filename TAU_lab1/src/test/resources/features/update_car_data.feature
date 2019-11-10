@@ -19,4 +19,3 @@ Feature: Update Car
       | 7  | NotUpdates |
       | 8  | Updated    |
       | 9  | NotUpdates |
-      | 10 | Updated    |
