@@ -13,18 +13,20 @@ import static org.junit.Assert.assertEquals;
 
 public class RemoveCar {
 
-    private int cars_number = 12;
+    private int cars_number = 10;
     private CarService testRepo = new CarService(new ArrayList<>());
-    private ArrayList<Car> carsList = null;
+    private ArrayList<Car> carsList = new ArrayList<>();
+    private ArrayList<Car> searchedCars;
+    private ArrayList<Car> searchedCarsNotMazda = new ArrayList<>();
 
-    @Given("Create Cars list")
+    @Given("create cars list")
     public void create_cars_list() {
         for (int i = 0; i < cars_number; i++) {
-            Car car = new Car(i, "GD 123" + Integer.toString(i), "Mada v" + Integer.toString(i), 100 + i);
+            Car car = new Car(i, "GD 123" + Integer.toString(i), "Golf v" + Integer.toString(i), 100 + i);
             i++;
-            Car car1 = new Car(i, "NO 123" + Integer.toString(i), "Golf " + Integer.toString(i), 100 + i);
-            carsList.add(car1);
+            Car car1 = new Car(i, "NO 123" + Integer.toString(i), "Mazda " + Integer.toString(i), 100 + i);
             carsList.add(car);
+            carsList.add(car1);
         }
     }
 
@@ -37,16 +39,26 @@ public class RemoveCar {
 
     @When("car is registered in Gdańsk")
     public void car_is_registered_in_Gdansk() {
+        searchedCars = testRepo.searchCarByRegistrationExpression("GD");
     }
 
     @But("car name is not Mazda")
     public void car_name_is_not_Mazda() {
+        for(Car car:searchedCars){
+            if(car.getBrand().contains("Mazda"))
+                break;
+            searchedCarsNotMazda.add(car);
+        }
     }
 
     @Then("remove this car")
     public void remove_this_car()
     {
-        assertEquals(testRepo.cars.size(), cars_number);
+        for(Car car:searchedCarsNotMazda){
+            testRepo.delete(car);
+
+        }
+        assertEquals(cars_number-searchedCarsNotMazda.size(), testRepo.cars.size());
     }
 }
 
