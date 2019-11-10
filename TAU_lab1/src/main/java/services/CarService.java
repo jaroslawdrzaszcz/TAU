@@ -111,4 +111,19 @@ public class CarService {
             searchedCars.add(car);
         }
         return searchedCars;    }
+
+    public ArrayList<Car> removeByOwnersList(ArrayList<Integer> list) {
+        ArrayList<Car> removedCars = new ArrayList<>();
+        for(Car car : cars){
+            for(int id : list){
+               if(car.getOwner_id()==id){
+                    removedCars.add(car);
+                }
+            }
+        }
+        for(Car car : removedCars){
+            cars.remove(car);
+        }
+        return removedCars;
+    }
 }
