@@ -1,8 +1,10 @@
-package services;
+package cucumber;
 
 import domain.Car;
 import org.junit.Before;
 import org.junit.Test;
+import services.CarService;
+import services.CarServiceTest;
 
 import java.util.ArrayList;
 
@@ -40,11 +42,6 @@ public class CucumberLabTest {
     public void searchByRegularRegistrationExpressionMethodInCarRepositoryTest(){
         ArrayList<Car> searchedCars = testRepo.searchCarByRegistrationExpression("NO");
         assertEquals(cars_number/2, searchedCars.size());
-    }
-
-    @Test
-    public void removeByOwnersListMethodIsImplementedTestIsImplemented(){
-        assertNotNull(testRepo.removeByOwnersList(null));
     }
 
     @Test

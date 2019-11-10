@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class CarService {
-    ArrayList<Car> cars;
+    public ArrayList<Car> cars;
     boolean addToggle = true;
     boolean readToggle = true;
     boolean updateToggle = true;
@@ -100,7 +100,7 @@ public class CarService {
         readToggle = false;
     }
 
-    void toggleUpdateTimestamp() {
+    public void toggleUpdateTimestamp() {
         updateToggle = false;
     }
 
