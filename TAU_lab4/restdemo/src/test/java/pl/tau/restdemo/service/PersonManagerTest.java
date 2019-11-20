@@ -49,4 +49,16 @@ public class PersonManagerTest {
 		assertEquals(YOB_1, personRetrieved.getYob());
 	}
 
+	@Test
+	public void prepreDatabase() throws SQLException {
+		int personNumbers = 100;
+		for (int i = 1; i < personNumbers; i++) {
+			Person person = new Person();
+			person.setName("Marek" + Integer.toString(i));
+			person.setYob(1900 + i);
+
+			personManager.addPerson(person);
+		}
+			assertEquals(personNumbers, personManager.getAllPersons().size());
+	}
 }

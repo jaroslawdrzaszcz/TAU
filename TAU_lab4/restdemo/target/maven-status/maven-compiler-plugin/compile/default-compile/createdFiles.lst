@@ -1,0 +1,6 @@
+pl\tau\restdemo\configuration\RestConfiguration.class
+pl\tau\restdemo\service\PersonManager.class
+pl\tau\restdemo\configuration\RestInitializer.class
+pl\tau\restdemo\domain\Person.class
+pl\tau\restdemo\web\PersonApi.class
+pl\tau\restdemo\service\PersonManagerImpl.class
