@@ -61,4 +61,13 @@ public class PersonApi {
         return new Long(personManager.deletePerson(personManager.getPerson(id)));
     }
 
+    @RequestMapping(value = "/person/{id}",
+            method = RequestMethod.PUT,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public Person updatePerson(@RequestBody Person newperson, @PathVariable("id") Long id) throws SQLException {
+        personManager.updatePerson(newperson);
+        return personManager.getPerson(id);
+    }
 }
