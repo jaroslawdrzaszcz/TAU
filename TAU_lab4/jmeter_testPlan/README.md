@@ -1,5 +1,5 @@
-# Test Plan z wykładu
+# Lab 4 Jmeter
 
-Bardzo proszę, aby na ćwiczeniach postarać się stworzyć plan dla CRUD od zera, lub z szablonu HTTP.
+Dane testowe zostały uzupełnie z pliku MOCK_DATA.csv.
 
-Umieszczony plan nie obejmuje testu metody delete, więc to na pewno należałoby uzupełnić.
+Plan z testów wykonanych przy pomocy programu Jmeter w pliku lab4_tests_jmeter.jmx.

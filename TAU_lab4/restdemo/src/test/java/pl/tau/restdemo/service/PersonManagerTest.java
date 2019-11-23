@@ -15,6 +15,7 @@ import pl.tau.restdemo.domain.Person;
 public class PersonManagerTest {
 
 	PersonManager personManager;
+	int personNumbers = 100;
 
 	private final static String NAME_1 = "Janek";
 	private final static int YOB_1 = 1939;
@@ -22,6 +23,13 @@ public class PersonManagerTest {
 	@Before
 	public void setup() throws SQLException {
 		personManager = new PersonManagerImpl();
+		for (int i = 0; i < personNumbers; i++) {
+			Person person = new Person();
+			person.setName("Marek" + Integer.toString(i));
+			person.setYob(1900 + i);
+
+			personManager.addPerson(person);
+		}
 	}
 
 	@After
@@ -51,14 +59,6 @@ public class PersonManagerTest {
 
 	@Test
 	public void prepreDatabase() throws SQLException {
-		int personNumbers = 100;
-		for (int i = 1; i < personNumbers; i++) {
-			Person person = new Person();
-			person.setName("Marek" + Integer.toString(i));
-			person.setYob(1900 + i);
-
-			personManager.addPerson(person);
-		}
 			assertEquals(personNumbers, personManager.getAllPersons().size());
 	}
 }

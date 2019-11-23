@@ -67,6 +67,7 @@ public class PersonApi {
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Person updatePerson(@RequestBody Person newperson, @PathVariable("id") Long id) throws SQLException {
+        newperson.setId(id);
         personManager.updatePerson(newperson);
         return personManager.getPerson(id);
     }
