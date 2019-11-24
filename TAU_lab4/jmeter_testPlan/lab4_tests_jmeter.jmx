@@ -437,7 +437,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/person/724</stringProp>
+          <stringProp name="HTTPSampler.path">/api/person/205</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -492,8 +492,7 @@
                 <connectTime>true</connectTime>
               </value>
             </objProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="TestPlan.comments">D:\informa\Semestr 7\TestowanieAutomtyczne\cw\TAU\TAU_lab4\jmeter_testPlan\results.csv</stringProp>
+            <stringProp name="filename">D:\informa\Semestr 7\TestowanieAutomtyczne\cw\TAU\TAU_lab4\jmeter_testPlan\results.csv</stringProp>
           </ResultCollector>
           <hashTree/>
         </hashTree>
@@ -505,7 +504,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/person/724</stringProp>
+          <stringProp name="HTTPSampler.path">/api/person/205</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -601,7 +600,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/person/800</stringProp>
+          <stringProp name="HTTPSampler.path">/api/person/210</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -623,7 +622,7 @@
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="2079711875">{&quot;id&quot;:800,&quot;name&quot;:&quot;NewPeson&quot;,&quot;yob&quot;:2019}</stringProp>
+              <stringProp name="286767708">{&quot;id&quot;:210,&quot;name&quot;:&quot;NewPeson&quot;,&quot;yob&quot;:2019}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>

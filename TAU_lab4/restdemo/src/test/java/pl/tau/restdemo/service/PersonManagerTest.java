@@ -44,6 +44,7 @@ public class PersonManagerTest {
 	@Test
 	public void checkAdding() throws SQLException {
 		Person person = new Person();
+		person.setId(0);
 		person.setName(NAME_1);
 		person.setYob(YOB_1);
 
