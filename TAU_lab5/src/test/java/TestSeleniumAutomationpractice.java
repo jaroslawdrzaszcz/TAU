@@ -3,16 +3,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.io.File;
-import java.io.IOException;
 
 public class TestSeleniumAutomationpractice {
 
@@ -23,42 +18,34 @@ public class TestSeleniumAutomationpractice {
         System.setProperty("webdriver.chrome.driver", "C:\\Windows\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://automationpractice.com");
-        driver.manage().window().fullscreen();
     }
 
     @Test
-    public void homePage() throws IOException {
-        driver.findElement(By.linkText("Sign in")).click();
-
-        if (driver instanceof TakesScreenshot) {
-            File f = ((TakesScreenshot) driver).
-                    getScreenshotAs(OutputType.FILE);
-            FileHandler.copy(f,
-                    new File("D:\\informa\\Semestr 7\\TestowanieAutomtyczne\\cw\\TAU\\TAU_lab5\\src\\" +
-                            "screanshots\\automationpracticeHomePage.png"));
-        }
+    public void navigationTest() {
+        driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/a")).click();
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals("http://automationpractice.com/index.php?id_category=8&controller=category",
+                currentUrl);
     }
 
     @Test
     public void correctLogin() {
+        driver.manage().window().setSize(new Dimension(600, 800));
         driver.findElement(By.linkText("Sign in")).click();
-        driver.findElement(By.name("email")).click();
-        driver.findElement(By.name("email")).sendKeys("testowy@pjwstk.edu.pl");
+        driver.findElement(By.cssSelector("#email")).sendKeys("testowy@pjwstk.edu.pl");
         driver.findElement(By.xpath("//form[@id='login_form']/div")).click();
-        driver.findElement(By.name("passwd")).click();
         driver.findElement(By.name("passwd")).sendKeys("testowy123");
         driver.findElement(By.xpath("//button[@id='SubmitLogin']/span")).click();
-        Assert.assertEquals("Testowy User", driver.findElement(By.className("header_user_info")).getText());
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals("http://automationpractice.com/index.php?controller=my-account", currentUrl);
     }
 
     @Test
     public void incorrectLogin() {
         driver.findElement(By.linkText("Sign in")).click();
-        driver.findElement(By.name("email")).click();
-        driver.findElement(By.name("email")).sendKeys("test@pjwstk.edu.pl");
+        driver.findElement(By.cssSelector("#email")).sendKeys("test@wp.pl");
         driver.findElement(By.xpath("//form[@id='login_form']/div")).click();
-        driver.findElement(By.name("passwd")).click();
-        driver.findElement(By.name("passwd")).sendKeys("test123");
+        driver.findElement(By.name("passwd")).sendKeys("test");
         driver.findElement(By.xpath("//button[@id='SubmitLogin']/span")).click();
         Assert.assertTrue(driver.findElement(By.className("alert-danger")).isDisplayed());
     }
