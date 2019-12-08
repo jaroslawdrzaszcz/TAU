@@ -29,7 +29,7 @@ public class TestSeleniumAutomationpractice {
     }
 
     @Test
-    public void correctLogin() {
+    public void correctLoginTest() {
         driver.manage().window().setSize(new Dimension(600, 800));
         driver.findElement(By.linkText("Sign in")).click();
         driver.findElement(By.cssSelector("#email")).sendKeys("testowy@pjwstk.edu.pl");
@@ -41,7 +41,7 @@ public class TestSeleniumAutomationpractice {
     }
 
     @Test
-    public void incorrectLogin() {
+    public void incorrectLoginTest() {
         driver.findElement(By.linkText("Sign in")).click();
         driver.findElement(By.cssSelector("#email")).sendKeys("test@wp.pl");
         driver.findElement(By.xpath("//form[@id='login_form']/div")).click();
@@ -51,14 +51,14 @@ public class TestSeleniumAutomationpractice {
     }
 
     @Test
-    public void incorrectRegistration() {
+    public void incorrectRegistrationTest() {
         driver.findElement(By.linkText("Sign in")).click();
         driver.findElement(By.name("email_create")).click();
-        driver.findElement(By.name("email_create")).sendKeys("test@pjwstk.edu.pl");
+        driver.findElement(By.name("email_create")).sendKeys("test1234@wp.pl");
         driver.findElement(By.xpath("//button[@id='SubmitCreate']/span")).click();
         WebDriverWait wait = new WebDriverWait(driver, 100);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='submitAccount']/span"))).click();
-        Assert.assertTrue(driver.findElement(By.className("alert-danger")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/ol/li[1]")).isDisplayed());
     }
 
     @After
