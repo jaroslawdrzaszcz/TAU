@@ -1,18 +1,18 @@
 *** Settings ***
-
-Resource            ../CommonResource.robot
-Force Tags          MyTag
+Documentation     Simple example using SeleniumLibrary.
+Library           CalculatorLibrary
+Force Tags        MyTag
 
 
 *** Variables ***
+${CALCULATOR}   test_calculate_triangle_quadrangle.py
 
-${robotVar} =            FooBarBaz
+*** Test Cases ***
+First Test
+    Python  ${CALCULATOR}
 
-
-*** Testcases ***
-
-Foo Test Case
-    [tags]              FooTag
-    [Documentation]     Created by John Doe
-    Do An Action        Argument
-    Do Another Action   ${robotVar}
+#Foo Test Case
+#    [tags]              FooTag
+#    [Documentation]     Created by John Doe
+#    Do An Action        Argument
+#    Do Another Action   ${robotVar}
