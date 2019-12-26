@@ -17,7 +17,7 @@ ${INVALID PASSWORD}     test
 ${MAIN URL}    http://${SERVER}/index.php
 ${SIGNIN URL}    http://${SERVER}/index.php?controller=authentication&back=my-account
 ${CONTACT US URL}  http://${SERVER}/index.php?controller=contact
-#${ALERT URL}    http://${SERVER}/login_page.php?error=1&username=${INVALID USER}&return=index.php&secure_session=1
+${ALERT URL}    http://${SERVER}/index.php?controller=authentication
 
 *** Keywords ***
 Open Browser To Main Page
@@ -47,17 +47,15 @@ Submit Credentials
 My Account Page Should Be Open
     Title Should Be    My account - My Store
 
-Alert Danger Is Displayd
-    Alert Should Be Present   Invalid password
-
 Input Create Email
-    Input Text    email_create    ${passwd}
+    [Arguments]    ${email}
+    Input Text    email_create    ${email}
 
 Create Account
-    Click Button    SubmitCreate
+    Click Button    xpath=//*[@id="SubmitCreate"]
 
 Submit Account
-    Click Button    SubmitAccount
+    Click Button    xpath=//*[@id="submitAccount"]
 
-Alert Error Is Displayd
-    Alert Should Be Present   There are 8 errors
+Alert Page Should Be Open
+    Location Should Be   ${ALERT URL}
