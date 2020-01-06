@@ -1,18 +1,11 @@
 *** Settings ***
-Documentation     Simple example using SeleniumLibrary.
+Documentation     Simple example using CalculatorLibrary.
 Library           CalculatorLibrary
-Force Tags        MyTag
 
 
 *** Variables ***
-${CALCULATOR}   test_calculate_triangle_quadrangle.py
+${APPLICATION_PATH} =    D:\\informa\\Semestr 7\\TestowanieAutomtyczne\\cw\\TAU\\TAU_lab6\\CalculatorLibrary\\src\\Tau6\\TAULab6\\bin\\Debug\\netcoreapp3.0\\TAULab6.exe
 
 *** Test Cases ***
-First Test
-    Python  ${CALCULATOR}
-
-#Foo Test Case
-#    [tags]              FooTag
-#    [Documentation]     Created by John Doe
-#    Do An Action        Argument
-#    Do Another Action   ${robotVar}
+Run Program
+    Start App   ${APPLICATION_PATH}
