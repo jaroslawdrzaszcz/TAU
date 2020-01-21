@@ -9,9 +9,10 @@ import java.util.NoSuchElementException;
 
 public class CarService {
     public ArrayList<Car> cars;
-    boolean addToggle = true;
-    boolean readToggle = true;
-    boolean updateToggle = true;
+    private TimeStamp timeStamp = new TimeStamp();
+    private boolean addToggle = true;
+    private boolean readToggle = true;
+    private boolean updateToggle = true;
 
     public CarService(){
 
@@ -22,8 +23,7 @@ public class CarService {
     }
 
     ArrayList<Car>readAll(){
-        TimeStamp timeStamp = new TimeStamp();
-        timeStamp.setTimeStamp(LocalDate.now());
+        timeStamp.getTimeStamp();
         if(readToggle){
             for (Car car:cars){
                 car.setReadTimestamps(timeStamp);
@@ -36,8 +36,7 @@ public class CarService {
             if(newCar.getId()==car.getId())
                 throw new IllegalArgumentException("There is car with this Id in database");
         }
-        TimeStamp timeStamp = new TimeStamp();
-        timeStamp.setTimeStamp(LocalDate.now());
+        timeStamp.getTimeStamp();
         if (addToggle){
             newCar.setAddTimestamp(timeStamp);
         }
@@ -46,10 +45,9 @@ public class CarService {
     }
 
     public Car read(int id) {
-        TimeStamp timeStamp = new TimeStamp();
         for(Car car:cars){
             if (car.getId()==id) {
-                timeStamp.setTimeStamp(LocalDate.now());
+                timeStamp.getTimeStamp();
                 if(readToggle) {
                     car.setReadTimestamps(timeStamp);
                 }
@@ -60,10 +58,9 @@ public class CarService {
     }
 
     public Car update(int id, Car car){
-        TimeStamp timeStamp = new TimeStamp();
         if (car.getId()==id){
             cars.set(id, car);
-            timeStamp.setTimeStamp(LocalDate.now());
+            timeStamp.getTimeStamp();
             if(updateToggle) {
                 car.setUpdateTimestamp(timeStamp);
             }

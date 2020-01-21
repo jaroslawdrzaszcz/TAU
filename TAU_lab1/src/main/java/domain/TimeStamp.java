@@ -1,23 +1,9 @@
 package domain;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class TimeStamp {
-    private LocalDate timeStamp;
-
-    public TimeStamp(LocalDate timeStamp) {
-        this.timeStamp = timeStamp;
-    }
-
-    public TimeStamp() {
-
-    }
-
-    public LocalDate getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(LocalDate timeStamp) {
-        this.timeStamp = timeStamp;
+    public LocalDateTime getTimeStamp() {
+        return LocalDateTime.now();
     }
 }

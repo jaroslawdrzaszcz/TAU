@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 @RunWith(JUnit4.class)
 public class CarTest {
 
-    TimeStamp date = new TimeStamp((LocalDate.now()));
+    private TimeStamp date = new TimeStamp();
     @Test
     public void emptyCarIsImplementedTest() {
         assertNotNull(new Car());
