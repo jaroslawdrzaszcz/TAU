@@ -4,6 +4,7 @@ import domain.Car;
 import domain.TimeStamp;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -23,10 +24,9 @@ public class CarService {
     }
 
     ArrayList<Car>readAll(){
-        timeStamp.getTimeStamp();
         if(readToggle){
             for (Car car:cars){
-                car.setReadTimestamps(timeStamp);
+                car.setReadTimestamps(timeStamp.getTimeStamp());
             }
         }
         return cars;
@@ -36,9 +36,8 @@ public class CarService {
             if(newCar.getId()==car.getId())
                 throw new IllegalArgumentException("There is car with this Id in database");
         }
-        timeStamp.getTimeStamp();
         if (addToggle){
-            newCar.setAddTimestamp(timeStamp);
+            newCar.setAddTimestamp(timeStamp.getTimeStamp());
         }
         cars.add(newCar);
         return cars;
@@ -47,9 +46,8 @@ public class CarService {
     public Car read(int id) {
         for(Car car:cars){
             if (car.getId()==id) {
-                timeStamp.getTimeStamp();
                 if(readToggle) {
-                    car.setReadTimestamps(timeStamp);
+                    car.setReadTimestamps(timeStamp.getTimeStamp());
                 }
                 return car;
             }
@@ -60,9 +58,8 @@ public class CarService {
     public Car update(int id, Car car){
         if (car.getId()==id){
             cars.set(id, car);
-            timeStamp.getTimeStamp();
             if(updateToggle) {
-                car.setUpdateTimestamp(timeStamp);
+                car.setUpdateTimestamp(timeStamp.getTimeStamp());
             }
             return car;
         }
@@ -77,8 +74,8 @@ public class CarService {
         throw new NoSuchElementException("There is no such a car in database");
     }
 
-    ArrayList<TimeStamp> getTimestamps(int id) {
-        ArrayList<TimeStamp> timeStampsList = new ArrayList<>();
+    ArrayList<LocalDateTime> getTimestamps(int id) {
+        ArrayList<LocalDateTime> timeStampsList = new ArrayList<>();
         for (Car car:cars) {
             if (car.getId() == id) {
                 timeStampsList.add(car.getAddTimestamp());

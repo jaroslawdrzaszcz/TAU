@@ -25,6 +25,7 @@ public class CarTest {
 
     @Test
     public void carTimestampsIsImplementedTest() {
-        assertNotNull(new Car(1, "GD 1234", "Toyota", 123, date, date, date));
+        assertNotNull(new Car(1, "GD 1234", "Toyota", 123, date.getTimeStamp(),
+                date.getTimeStamp(), date.getTimeStamp()));
     }
 }
