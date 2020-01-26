@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++17 -Wall -Wextra   CMakeFiles/jd-db-catch2-cmake-test.dir/test/bdd_test_db.cpp.o CMakeFiles/jd-db-catch2-cmake-test.dir/test/test_db.cpp.o CMakeFiles/jd-db-catch2-cmake-test.dir/test/tests.cpp.o  -o jd-db-catch2-cmake-test 

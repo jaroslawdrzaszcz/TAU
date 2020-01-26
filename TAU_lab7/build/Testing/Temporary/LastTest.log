@@ -1,0 +1,129 @@
+Start testing: Jan 26 10:22 CET
+----------------------------------------------------------
+1/7 Testing: Scenario: getting data from database
+1/7 Test: Scenario: getting data from database
+Command: "/media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build/jd-db-catch2-cmake-test" "Scenario: getting data from database"
+Directory: /media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build
+"Scenario: getting data from database" start time: Jan 26 10:22 CET
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (2 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Scenario: getting data from database" end time: Jan 26 10:22 CET
+"Scenario: getting data from database" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: Scenario: Removing data from database
+2/7 Test: Scenario: Removing data from database
+Command: "/media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build/jd-db-catch2-cmake-test" "Scenario: Removing data from database"
+Directory: /media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build
+"Scenario: Removing data from database" start time: Jan 26 10:22 CET
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (2 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Scenario: Removing data from database" end time: Jan 26 10:22 CET
+"Scenario: Removing data from database" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/7 Testing: Basic database object operations
+3/7 Test: Basic database object operations
+Command: "/media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build/jd-db-catch2-cmake-test" "Basic database object operations"
+Directory: /media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build
+"Basic database object operations" start time: Jan 26 10:22 CET
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (3 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Basic database object operations" end time: Jan 26 10:22 CET
+"Basic database object operations" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/7 Testing: Getting data from the database
+4/7 Test: Getting data from the database
+Command: "/media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build/jd-db-catch2-cmake-test" "Getting data from the database"
+Directory: /media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build
+"Getting data from the database" start time: Jan 26 10:22 CET
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (5 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Getting data from the database" end time: Jan 26 10:22 CET
+"Getting data from the database" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/7 Testing: Getting data by id from the database
+5/7 Test: Getting data by id from the database
+Command: "/media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build/jd-db-catch2-cmake-test" "Getting data by id from the database"
+Directory: /media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build
+"Getting data by id from the database" start time: Jan 26 10:22 CET
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (7 assertions in 1 test case)
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Getting data by id from the database" end time: Jan 26 10:22 CET
+"Getting data by id from the database" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/7 Testing: Adding new element to the database
+6/7 Test: Adding new element to the database
+Command: "/media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build/jd-db-catch2-cmake-test" "Adding new element to the database"
+Directory: /media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build
+"Adding new element to the database" start time: Jan 26 10:22 CET
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (3 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Adding new element to the database" end time: Jan 26 10:22 CET
+"Adding new element to the database" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/7 Testing: Removing data by id from the database
+7/7 Test: Removing data by id from the database
+Command: "/media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build/jd-db-catch2-cmake-test" "Removing data by id from the database"
+Directory: /media/jaro/12A8AF0FA8AEF101/informa/Semestr 7/TestowanieAutomtyczne/cw/TAU/TAU_lab7/build
+"Removing data by id from the database" start time: Jan 26 10:22 CET
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (4 assertions in 1 test case)
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Removing data by id from the database" end time: Jan 26 10:22 CET
+"Removing data by id from the database" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jan 26 10:22 CET

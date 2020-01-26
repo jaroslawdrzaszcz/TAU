@@ -1,0 +1,8 @@
+Scenario: getting data from database 1 0.00525713
+Scenario: Removing data from database 1 0.00514293
+Basic database object operations 1 0.00687313
+Getting data from the database 1 0.00861716
+Getting data by id from the database 1 0.00474715
+Adding new element to the database 1 0.00631499
+Removing data by id from the database 1 0.00423217
+---
